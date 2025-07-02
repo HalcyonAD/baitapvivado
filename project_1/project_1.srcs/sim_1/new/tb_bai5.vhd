@@ -8,7 +8,7 @@ end tb_bai5;
 architecture Behavioral of tb_bai5 is
 
    
-    component bai_5
+    component bai5
         Port (
             clk    : in  STD_LOGIC;
             Q      : buffer STD_LOGIC_VECTOR(2 downto 0);
@@ -25,7 +25,7 @@ architecture Behavioral of tb_bai5 is
 begin
 
     
-    uut: bai_5
+    uut: bai5
         port map (
             clk    => clk_tb,
             Q      => Q_tb,
