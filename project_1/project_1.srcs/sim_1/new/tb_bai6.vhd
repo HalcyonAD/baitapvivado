@@ -2,13 +2,13 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity tb_bai4 is
-end tb_bai4;
+entity tb_bai6 is
+end tb_bai6;
 
-architecture Behavioral of tb_bai4 is
+architecture Behavioral of tb_bai6 is
 
    
-    component bai_4
+    component bai6
         Port (
             clk    : in  STD_LOGIC;
             Q      : buffer STD_LOGIC_VECTOR(2 downto 0);
@@ -25,7 +25,7 @@ architecture Behavioral of tb_bai4 is
 begin
 
     
-    uut: bai_4
+    uut: bai6
         port map (
             clk    => clk_tb,
             Q      => Q_tb,

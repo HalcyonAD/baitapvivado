@@ -2,10 +2,10 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity tb_bai_3 is
-end tb_bai_3;
+entity tb_bai3 is
+end tb_bai3;
 
-architecture Behavioral of tb_bai_3 is
+architecture Behavioral of tb_bai3 is
 
    
     component bai_3
