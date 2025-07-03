@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07/01/2025 10:15:33 PM
+-- Create Date: 07/03/2025 07:58:26 AM
 -- Design Name: 
--- Module Name: bai4T_FF - Behavioral
+-- Module Name: bai11_JK_FF - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,47 +31,55 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity bai_4 is
+entity bai11_JK_FF is
 Port (
         clk    : in  STD_LOGIC;
         Q      : buffer STD_LOGIC_VECTOR(2 downto 0);
         Q_inv  : buffer STD_LOGIC_VECTOR(2 downto 0);
         y      : out STD_LOGIC
     );
-end bai_4;
+end bai11_JK_FF;
 
-architecture Behavioral of bai_4 is
-component T_FF
+architecture Behavioral of bai11_JK_FF is
+component bai3JK
         Port (
-            T     : in STD_LOGIC;
+            J, K  : in STD_LOGIC;
             CLK   : in STD_LOGIC;
             Q     : buffer STD_LOGIC;
             Q_inv : buffer STD_LOGIC
         );
     end component;
  
-    signal T: STD_LOGIC_VECTOR(2 downto 0);
+    signal J, K: STD_LOGIC_VECTOR(2 downto 0);
 begin
- T(0) <= Q_inv(1) or (Q(1) and Q(0)) or (Q_inv(2) and Q(1));
- T(1) <= Q(0) or (Q(2) and Q(1));
- T(2) <= (Q(1) and Q(0))or (Q(2) and Q(1));
- FF0: T_FF port map (
+   J(0) <= '1';
+   K(0) <= '0';
+   J(1) <= Q(2) or Q(0);
+   K(1) <= '1';
+   J(2) <= Q(1);
+   K(2) <= Q(1);
+    FF0: bai3JK port map (
         CLK => clk,
         Q => Q(0),
-        T => T(0),
+        J => J(0),
+        K => K(0),
         Q_inv => Q_inv(0)
     );
-  FF1: T_FF port map (
+
+    FF1: bai3JK port map (
         CLK => clk,
         Q => Q(1),
-        T => T(1),
+        J => J(1),
+        K => K(1),
         Q_inv => Q_inv(1)
     );
-  FF2: T_FF port map (
+
+    FF2: bai3JK port map (
         CLK => clk,
         Q => Q(2),
-        T => T(2),
+        J => J(2),
+        K => K(2),
         Q_inv => Q_inv(2)
     );
-   y <= '1' when Q = "000" else '0';
+     y <= '1' when Q = "000" else '0';
 end Behavioral;

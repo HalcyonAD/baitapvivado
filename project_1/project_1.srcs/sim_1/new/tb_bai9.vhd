@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07/01/2025 10:33:08 PM
+-- Create Date: 07/01/2025 11:56:50 PM
 -- Design Name: 
--- Module Name: tb_bai4T_FF - Behavioral
+-- Module Name: tb_bai9 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,20 +31,19 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity tb_bai4 is
+entity tb_bai9 is
 --  Port ( );
-end tb_bai4;
+end tb_bai9;
 
-architecture Behavioral of tb_bai4 is
- signal clk_tb: STD_LOGIC :='0';
+architecture Behavioral of tb_bai9 is
+signal clk_tb: STD_LOGIC :='0';
  signal Q_tb: STD_LOGIC_VECTOR (2 downto 0);
  signal Q_inv_tb: STD_LOGIC_VECTOR (2 downto 0);
  signal y_tb: STD_LOGIC;
  
  constant clk_period: time :=10ns;
- 
 begin
-uut:entity work.bai_4
+uut:entity work.bai_9
   port map(
     clk => clk_tb,
     Q   => Q_tb,
@@ -69,5 +68,6 @@ uut:entity work.bai_4
     end loop;
     wait;
  end process;
+
 
 end Behavioral;
